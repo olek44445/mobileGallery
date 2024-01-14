@@ -11,7 +11,29 @@
           <ion-title size="large">Admin</ion-title>
         </ion-toolbar>
       </ion-header>
-      <ion-toolbar>
+
+       <!-- ALLOW LIST -->
+       <ion-list>
+        <ion-toolbar>
+          <ion-title size="small">Allow list</ion-title>
+        </ion-toolbar>
+        <ion-item v-for="alloweduser in allowlist" ref="itemRefs">
+          <ion-checkbox></ion-checkbox>
+          <ion-label>&nbsp;&nbsp;&nbsp;{{ alloweduser.name }}</ion-label>
+          <ion-label>{{ alloweduser.uuid }}</ion-label>
+
+          <ion-button :id="`open-modal-ban-{{alloweduser.uuid}}`" :data-value="alloweduser.uuid">
+            ban
+          </ion-button>
+        </ion-item>
+
+
+        <ion-item>
+          <ion-input label="Username" :autofocus="true"></ion-input>
+          <ion-button style="min-width: 170px">Add user</ion-button>
+        </ion-item>
+      </ion-list>
+      <!-- <ion-toolbar>
         <ion-title size="small">Server list</ion-title>
       </ion-toolbar>
       <ion-list>
@@ -21,7 +43,7 @@
             router-link="/tabs/tabConsole">-></ion-button></ion-item>
         <ion-item><ion-checkbox></ion-checkbox><ion-label>&nbsp;&nbsp;&nbsp;Pokémon Yellow</ion-label><ion-button
             router-link="/tabs/tabConsole">-></ion-button></ion-item>
-      </ion-list>
+      </ion-list> -->
       <ion-grid>
         <ion-row>
           <ion-col>
